@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ElectronicShop</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/amazon-ember"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" type="text/css" href="/frontend/src/App.css" />
+  </head>
+  <body>
+    <!-- Root div where the React app will be rendered -->
+    <div id="root"></div>
+
+    <!-- Optional footer and product section (commented out, if not needed) -->
+    <!--
+    <h1 id="products_heading">Latest Products</h1>
+
+    <section id="products" class="container mt-5">
+       Product cards can go here -->
+    </section>
+
+    <script type="text/javascript">
+      const stars = 5;
+      const rating = 4.5;
+      const starPercentage = `${(rating / stars) * 100}%`;
+      document.querySelector(`.rating-inner`).style.width = starPercentage;
+    </script>
+  </body>
+</html>
+
+
+<!--
+   
+    
+
+
+
+
+    <script type="text/javascript">
+      const stars = 5;
+      const rating = 4.5;
+ 
+      const starPercentage = `${(rating / stars) * 100}%`;
+      
+      document.querySelector(`.rating-inner`).style.width = starPercentage; 
+      
+    </script>      -->
+
