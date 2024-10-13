@@ -108,7 +108,7 @@ exports.updateProduct = async(req,res,next) => {
 }
     -----------------------------------------------------------------------------------------------------------------------------
     problem : 
-The problem in your code is that you are attempting to send multiple responses within the same request handler. 
+The problem in this code is that you are attempting to send multiple responses within the same request handler. 
 Specifically, you are sending a response before and after updating the product.
 Key Changes:
 Removed the first res.status(200).json block: This was sending a response before updating the product.
@@ -180,6 +180,106 @@ exports.deleteProduct = async (req, res, next) => {
     }
 };
 
+//Create Review - api/v1/review
+exports.createReview = catchAsyncError(async(req, res, next) => {
+    const {productId, rating, comment } = req.body;
+    const review = {
+        user: req.user.id,
+        rating,
+        comment
+    }
+
+
+    // Finding user reviews exist
+    const product = await Product.findById(productId);
+    if (!product) {
+        return res.status(404).json({
+            success: false,
+            message: "Product not found"
+        });
+    }
+    
+    const isReviewed = product.reviews.find(review => {
+        return review.user.toString() == req.user.id.toString();
+    })
+
+    //Updating the review
+    if(isReviewed){
+        product.reviews.forEach(review => {
+            if(review.user.toString() == req.user.id.toString()){
+                review.comment = comment
+                review.rating = rating
+            }
+            
+        });
+
+    } else{
+        //Creating the reviews
+        product.reviews.push(review);
+        product.numOfReviews = product.reviews.length;
+    }
+
+    //Find the average of product reviews
+    product.ratings = product.reviews.reduce((acc,review) =>{       //reduce method -- sum the array values into a one single value
+        return review.rating + acc;
+    }, 0) / product.reviews.length;
+
+    product.ratings = isNaN(product.ratings)?0:product.ratings;
+
+    await product.save({validateBeforeSave: false});
+
+    res.status(200).json({
+        success: true
+
+    })
+})
+
+//Get Reviews - api/v1/reviews?id={productId}
+exports.getReviews  = catchAsyncError(async(req, res, next) => {
+    const product = await Product.findById(req.query.id);
+
+    // Check if the product exists
+    if (!product) {
+        return res.status(404).json({
+            success: false,
+            message: "Product not found"
+        });
+    }
+    res.status(200).json({
+        success: true,
+        reviews: product.reviews
+    });
+});
+
+//Delete Review - api/v1/review
+exports.deleteReview = catchAsyncError(async(req, res, next) => { 
+    const product = await Product.findById(req.query.productId);
+
+    //Filtering the reviews that does not match the deleting review id
+    const reviews = product.reviews.filter(review => {
+        return review._id.toString() !== req.query.id.toString();
+
+    });
+
+    //number of reviews
+    const numOfReviews = reviews.length;
+
+    //finding the averagewith the filtered reviews
+    let ratings = reviews.reduce((acc,review) =>{ 
+        return review.rating + acc;
+    }, 0) / reviews.length;
+
+    //save  the product document
+    ratings = isNaN(ratings)?0:ratings;
+    await Product.findByIdAndUpdate(req.query.productId, {
+        reviews,
+        numOfReviews,
+        ratings
+    })
+    res.status(200).json({
+        success: true
+    })
+});
 
 
 
