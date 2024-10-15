@@ -5,7 +5,7 @@ const { get } = require('mongoose');
 const {isAuthenticatedUser, authorizeRoles } = require('../middlewares/authenticate');
 
 // isAuthenticatedUser, authorizeRoles these middlewares handling the roles and permission
-router.route('/products').get(isAuthenticatedUser,getProducts);
+router.route('/products').get(getProducts);     //isAuthenticatedUser,
 router.route('/product/:id')                                
                             .get(getSingleProduct)
                             .put(updateProduct)
