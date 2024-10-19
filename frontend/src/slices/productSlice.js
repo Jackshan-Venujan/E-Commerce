@@ -1,23 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const productsSlice = createSlice({
-    name: 'products',
+const productSlice = createSlice({
+    name: 'product',
     initialState: {
-        loading: false
+        loading: false,
+        product: {}
     },
     reducers: { 
-        productsRequest(state, action){
+        productRequest(state, action){
             return {
                 loading: true,          //loading spinner
             }
         },
-        productsSuccess(state,action){
+        productSuccess(state,action){
             return {
                 loading: false,
-                products: action.payload.products
+                product: action.payload.product
             }
         },
-        productsFail(state, action) {
+        productFail(state, action) {
             return {
                 loading: false,
                 error: action.payload
@@ -26,9 +27,9 @@ const productsSlice = createSlice({
     }
 });
 
-const {actions, reducer} = productsSlice;
+const {actions, reducer} = productSlice;
 
-export const {productsRequest,productsSuccess,productsFail} = actions;
+export const {productRequest,productSuccess,productFail} = actions;
 
 export default reducer;
 

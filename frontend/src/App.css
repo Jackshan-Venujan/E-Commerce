@@ -183,7 +183,7 @@ footer {
 }
 
 .greenColor {
-  color: green;
+  color: rgb(0, 165, 0);
 }
 
 #product_image {
@@ -658,4 +658,12 @@ ul.CTAs a {
 .review_user {
   font-size: 0.8rem;
   color: grey;
+}
+
+.Toastify__toast--success {
+  background-color: #4caf50; /* Green background for success */
+}
+
+.Toastify__toast--error {
+  background-color: #f44336; /* Red background for error */
 }

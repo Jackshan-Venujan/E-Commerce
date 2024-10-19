@@ -1,17 +1,15 @@
 import axios from 'axios'
-import { productRequest, productsFail, productSuccess } from '../slices/productsSlice';
+import { productsRequest, productsFail, productsSuccess } from '../slices/productsSlice';
 
 export const getProducts = async (dispatch) =>{
     try{
-        dispatch(productRequest())
+        dispatch(productsRequest())
         const {data} = await axios.get('/api/v1/products');
-        dispatch(productSuccess(data))
+        dispatch(productsSuccess(data))
 
     }
     catch (error){
         dispatch(productsFail(error.response.data.message))
 
     }
-    
-
 }
