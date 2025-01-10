@@ -1,14 +1,14 @@
 import { Fragment, useEffect, useState } from "react";
-import MetaData from "./layouts/MetaData";
-import { getProducts } from "../actions/productAction";
+import MetaData from "../layouts/MetaData";
+import { getProducts } from "../../actions/productAction";
 import { useDispatch, useSelector } from 'react-redux';
-import Loader from "./layouts/Loader";
-import Product from "./product/Product";
+import Loader from "../layouts/Loader";
+import Product from "../product/Product";
 import { toast, ToastContainer } from 'react-toastify';
 import Pagination from 'react-js-pagination';
 
 
-export default function Home(){
+export default function ProductSearch(){
     const dispatch =useDispatch();
     const { products, loading,error,productsCount,resPerPage} = useSelector((state) => state.productsState)
     const [currentPage, setCurrentPage] = useState(1);
@@ -63,3 +63,5 @@ export default function Home(){
     )
 
 }
+
+// Not finished this search and filter options
