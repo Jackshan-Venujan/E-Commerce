@@ -10,8 +10,7 @@ const authSlice = createSlice({
         loginRequest(state, action){
             return {
                 ...state,
-                loading: true,          //loading spinner
-                
+                loading: true,          //loading 
             }
         },
         loginSuccess(state,action){
@@ -25,8 +24,7 @@ const authSlice = createSlice({
             return {
                 ...state,
                 loading: false,
-                error: action.payload
-                
+                error: action.payload               
             }
         } 
     }

@@ -1,16 +1,33 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import MetaData from '../layouts/MetaData';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../actions/userActions';
+import { toast } from 'react-toastify';
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
+    const {loading,error} = useSelector(state => state.authState);
 
     const submitHandler = (e) => {
         e.preventDefault();
         console.log('Email:', email);
         console.log('Password:', password);
-        // Add your login logic here
+        // Add your login logic 
+        dispatch(login(email, password));
     };
+
+    useEffect(() => {
+        if (error) {
+            toast.error(error, {
+                position: toast.POSITION.TOP_CENTER,
+        });
+        return
+
+        }
+
+    }, [error]);
 
     return (
         <Fragment>
@@ -50,6 +67,7 @@ export default function Login() {
                             id="login_button"
                             type="submit"
                             className="btn btn-primary btn-block py-2"
+                            disabled={loading}
                         >
                             LOGIN
                         </button>
