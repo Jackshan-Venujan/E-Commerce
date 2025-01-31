@@ -3,12 +3,14 @@ import MetaData from '../layouts/MetaData';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../actions/userActions';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
-    const {loading,error} = useSelector(state => state.authState);
+    const {loading,error, isAuthenticated } = useSelector(state => state.authState);
+    const navigate = useNavigate();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -19,15 +21,19 @@ export default function Login() {
     };
 
     useEffect(() => {
-        if (error) {
-            toast.error(error, {
-                position: toast.POSITION.TOP_CENTER,
-        });
-        return
+        if(isAuthenticated){
+            
+            navigate('/');
 
         }
 
-    }, [error]);
+        if (error) {
+            toast.error(error, {
+                position: toast.POSITION.BOTTOM_CENTER,
+        });
+        return
+        }
+    }, [error, isAuthenticated, navigate]);
 
     return (
         <Fragment>

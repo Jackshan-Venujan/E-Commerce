@@ -1,14 +1,14 @@
 import axios from "axios"
 import { loginFail, loginRequest, loginSuccess } from "../slices/authSlice"
 
-export const login = (email,password) => async(dispath) =>{
+export const login = (email,password) => async(dispatch) =>{
     try{
-        dispath(loginRequest)
-        const {data} = await axios.post(`api/v1/login `,{email,password});
-        dispath(loginSuccess(data))
+        dispatch(loginRequest());
+        const {data} = await axios.post(`api/v1/login`,{email,password});
+        dispatch(loginSuccess(data))
 
     } catch (error){
-        dispath(loginFail(error.response.data.message))
+        dispatch(loginFail(error.response.data.message))
 
     }
 }
