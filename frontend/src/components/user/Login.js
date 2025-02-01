@@ -1,9 +1,10 @@
 import { Fragment, useEffect, useState } from 'react';
 import MetaData from '../layouts/MetaData';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../actions/userActions';
+import { clearAuthError, login } from '../../actions/userActions';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import "react-toastify/dist/ReactToastify.css";
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -16,7 +17,6 @@ export default function Login() {
         e.preventDefault();
         console.log('Email:', email);
         console.log('Password:', password);
-        // Add your login logic 
         dispatch(login(email, password));
     };
 
@@ -29,11 +29,13 @@ export default function Login() {
 
         if (error) {
             toast.error(error, {
-                position: toast.POSITION.BOTTOM_CENTER,
+                position:"bottom-center" ,
+                type:'error',
+                onOpen: () => {dispatch(clearAuthError)}
         });
         return
         }
-    }, [error, isAuthenticated, navigate]);
+    }, [error, isAuthenticated,dispatch,navigate]);
 
     return (
         <Fragment>
@@ -77,6 +79,7 @@ export default function Login() {
                         >
                             LOGIN
                         </button>
+                        <Link to="/register" className='"float-right mt-3'>New User ?</Link>
                     </form>
                 </div>
             </div>

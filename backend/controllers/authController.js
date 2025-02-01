@@ -9,13 +9,17 @@ const crypto = require('crypto');
 //Register User - /api/v1/register
 exports.registerUser = catchAsyncError(async(req,res,next)=>{
    // console.log(req.body);
-    const {name,email,password,avatar} = req.body;
+    const {name,email,password} = req.body;
+    let avatar;
 
+    if(req.file){
+        avatar = `${req.protocol}://${req.host}/uploads/user/${req.file.originalname}`
+    }
      // Validate input fields
-     if (!name || !email || !password || !avatar) {
+     if (!name || !email || !password) {
         return res.status(400).json({
             success: false,
-            message: "All fields (name, email, password, avatar) are required"
+            message: "All fields (name, email, password) are required"
         });
     }
 

@@ -1,4 +1,16 @@
 const express = require('express');
+const multer = require('multer');
+const path = require('path');
+
+
+const upload = multer ({storage: multer.diskStorage({
+    destination: function(req, file, cb){
+        cb(null, path.join(__dirname,'..','uploads/user'))
+    },
+    filename: function(req, file, cb){
+        cb(null, file.originalname)
+    }
+})});
 const router = express.Router();
 const { 
     registerUser, 
@@ -17,7 +29,7 @@ const {
 const {isAuthenticatedUser, authorizeRoles } = require('../middlewares/authenticate')
 
 
-router.route('/register').post(registerUser);
+router.route('/register').post(upload.single('avatar'),registerUser);
 router.route('/login').post(loginUser);
 router.route('/logout').get(logoutUser); //We dont send data here. POST method is used where we need to send data.
 router.route('/password/forgot').post(forgotPassword);
