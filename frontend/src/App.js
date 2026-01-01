@@ -10,6 +10,7 @@ import ProductDetail from './components/product/ProductDetail';
 import ProductSearch from './components/product/ProductSearch';
 import Login from './components/user/Login';
 import Register from './components/user/Register';
+import Cart from './components/cart/Cart';
 import { useEffect } from 'react';
 import store from './store';
 import { loadUser } from './actions/userActions';
@@ -26,13 +27,14 @@ function App() {
         <HelmetProvider>
           <Header/>
             <div class="container container-fluid">
-              <ToastContainer theme="dark" />
+              <ToastContainer theme="dark" position="top-right" autoClose={3000} />
               <Routes>
                 <Route path = '/' element = {<Home/>} />
                 <Route path = '/search/:keyword' element = {<ProductSearch/>} />
                 <Route path = '/product/:id' element = {<ProductDetail/>} />  
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/register' element={<Register/>}/>
+                <Route path='/cart' element={<Cart/>}/>
               </Routes>
             </div>
           <Footer/>

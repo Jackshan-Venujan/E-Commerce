@@ -6,7 +6,8 @@ import {DropdownButton, Dropdown, Image} from 'react-bootstrap';
 import { logout } from '../../actions/userActions';
 
 export default function Header () {
-    const {isAuthenticated,user} = useSelector(state => state.authState) 
+    const {isAuthenticated,user} = useSelector(state => state.authState);
+    const {items = []} = useSelector(state => state.cartState || {items: []});
     const dispatch = useDispatch(); 
     const navigate = useNavigate();
     const logoutHandler = () => {
@@ -48,7 +49,7 @@ export default function Header () {
                 }
                 
                 <Link to="/cart"><span id="cart" className="ml-3">Cart</span></Link>
-                <span className="ml-1" id="cart_count">2</span>
+                <span className="ml-1" id="cart_count">{isAuthenticated ? items.length : 0}</span>
             </div>
         </nav>
     )
