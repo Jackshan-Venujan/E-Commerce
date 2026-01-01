@@ -24,9 +24,9 @@ export default function Home(){
                 position: "bottom-center"
             })      //toast position is not working
         }
-        dispatch(getProducts);
+        dispatch(getProducts(null, currentPage));
 
-    }, [error, dispatch])
+    }, [error, dispatch, currentPage])
 
     return (
         <Fragment>

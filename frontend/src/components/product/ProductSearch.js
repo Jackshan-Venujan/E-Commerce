@@ -6,12 +6,14 @@ import Loader from "../layouts/Loader";
 import Product from "../product/Product";
 import { toast, ToastContainer } from 'react-toastify';
 import Pagination from 'react-js-pagination';
+import { useParams } from 'react-router-dom';
 
 
 export default function ProductSearch(){
     const dispatch =useDispatch();
     const { products, loading,error,productsCount,resPerPage} = useSelector((state) => state.productsState)
     const [currentPage, setCurrentPage] = useState(1);
+    const { keyword } = useParams();
     console.log(currentPage)
     const setCurrentPageNo = (pageNo) =>{
         setCurrentPage(pageNo)
@@ -24,9 +26,9 @@ export default function ProductSearch(){
                 position: "bottom-center"
             })      //toast position is not working
         }
-        dispatch(getProducts);
+        dispatch(getProducts(keyword, currentPage));
 
-    }, [error, dispatch])
+    }, [error, dispatch, keyword, currentPage])
 
     return (
         <Fragment>
