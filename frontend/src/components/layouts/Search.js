@@ -7,10 +7,12 @@ export default function Search (){
     const navigate = useNavigate();
     const [keyword, setKeyword] = useState("")
     const searchHandler = (e) => {
-        e.preventDefault();             // Prevent browser to be load
-        navigate(`/search/${keyword}`)
-
-
+        e.preventDefault();
+        if(keyword.trim()) {
+            navigate(`/?keyword=${keyword}`);
+        } else {
+            navigate('/');
+        }
     }
     return(
         <form onSubmit={searchHandler}>

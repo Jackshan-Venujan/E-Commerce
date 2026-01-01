@@ -6,13 +6,16 @@ import Loader from "./layouts/Loader";
 import Product from "./product/Product";
 import { toast, ToastContainer } from 'react-toastify';
 import Pagination from 'react-js-pagination';
+import { useSearchParams } from 'react-router-dom';
 
 
 export default function Home(){
     const dispatch =useDispatch();
     const { products, loading,error,productsCount,resPerPage} = useSelector((state) => state.productsState)
     const [currentPage, setCurrentPage] = useState(1);
-    console.log(currentPage)
+    const [searchParams] = useSearchParams();
+    const keyword = searchParams.get('keyword');
+    
     const setCurrentPageNo = (pageNo) =>{
         setCurrentPage(pageNo)
     }
@@ -24,9 +27,9 @@ export default function Home(){
                 position: "bottom-center"
             })      //toast position is not working
         }
-        dispatch(getProducts(null, currentPage));
+        dispatch(getProducts(keyword, currentPage));
 
-    }, [error, dispatch, currentPage])
+    }, [error, dispatch, keyword, currentPage])
 
     return (
         <Fragment>
@@ -34,7 +37,7 @@ export default function Home(){
                 {loading ? <Loader/> :
                     <Fragment>
                     <MetaData title={'Buy Your Electronic Products'}/>
-                    <h1 id="products_heading">Latest Products</h1>
+                    <h1 id="products_heading">{keyword ? `Search Results for "${keyword}"` : 'Latest Products'}</h1>
                     <section id="products" className="container mt-5">
                         <div className="row">
                             {products && products.map(product => (

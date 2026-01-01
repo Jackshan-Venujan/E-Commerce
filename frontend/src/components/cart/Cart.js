@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { decreaseCartItemQty, increaseCartItemQty, removeItemFromCart } from '../../slices/cartSlice';
 import { toast } from 'react-toastify';
 
@@ -8,6 +8,7 @@ export default function Cart() {
     const { items } = useSelector(state => state.cartState);
     const { isAuthenticated } = useSelector(state => state.authState);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const increaseQty = (item) => {
         const count = item.quantity;
@@ -26,6 +27,10 @@ export default function Cart() {
     const removeHandler = (id) => {
         dispatch(removeItemFromCart(id));
         toast.success('Item removed from cart!');
+    }
+
+    const checkoutHandler = () => {
+        navigate('/shipping');
     }
 
     return (
@@ -78,7 +83,7 @@ export default function Cart() {
                                 <p>Subtotal:  <span className="order-summary-values">{items.reduce((acc, item) => (acc + item.quantity), 0)} (Units)</span></p>
                                 <p>Est. total: <span className="order-summary-values">${items.reduce((acc, item) => (acc + item.quantity * item.price), 0).toFixed(2)}</span></p>
                                 <hr />
-                                <button id="checkout_btn" className="btn btn-primary btn-block">Check out</button>
+                                <button id="checkout_btn" className="btn btn-primary btn-block" onClick={checkoutHandler}>Check out</button>
                             </div>
                         </div>
                     </div>

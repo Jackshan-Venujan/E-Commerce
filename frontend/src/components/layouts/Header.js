@@ -18,9 +18,9 @@ export default function Header () {
     return(
         <nav className="navbar row">
             <div className="col-12 col-md-3">
-                <div className="navbar-brand">
-                    <img width="150px" alt='ElectronicsShop Logo' src="/images/logo.png" />
-                </div>
+                <Link to="/" className="navbar-brand">
+                    <img width="150px" alt='ElectronicsShop Logo' src="/images/logo.png" style={{cursor: 'pointer'}} />
+                </Link>
             </div>
   
             <div className="col-12 col-md-6 mt-2 mt-md-0">

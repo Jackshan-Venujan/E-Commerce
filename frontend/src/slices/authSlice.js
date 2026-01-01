@@ -82,11 +82,61 @@ const authSlice = createSlice({
             }
         },
 logoutFail(state, action) {
-                    return {
-                        ...state,
-                        error: action.payload        
-                    }
+            return {
+                ...state,
+                error: action.payload        
             }
+        },
+        updateProfileRequest(state, action){
+            return {
+                ...state,
+                loading: true,
+                isUpdated: false
+            }
+        },
+        updateProfileSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                user: action.payload.user,
+                isUpdated: true
+            }
+        },
+        updateProfileFail(state, action) {
+            return {
+                ...state,
+                loading: false,
+                error: action.payload               
+            }
+        },
+        updatePasswordRequest(state, action){
+            return {
+                ...state,
+                loading: true,
+                isUpdated: false
+            }
+        },
+        updatePasswordSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                isUpdated: true
+            }
+        },
+        updatePasswordFail(state, action) {
+            return {
+                ...state,
+                loading: false,
+                error: action.payload               
+            }
+        },
+        clearUpdate(state, action) {
+            return {
+                ...state,
+                error: null,
+                isUpdated: false
+            }
+        }
     },
 });
 
@@ -104,7 +154,14 @@ export const
     loadUserSuccess,
     loadUserFail,
     logoutSuccess,
-    logoutFail
+    logoutFail,
+    updateProfileRequest,
+    updateProfileSuccess,
+    updateProfileFail,
+    updatePasswordRequest,
+    updatePasswordSuccess,
+    updatePasswordFail,
+    clearUpdate
 } = actions;
 
 export default reducer;
