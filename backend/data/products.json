@@ -1,117 +1,466 @@
 [
     {
-        "name": "OPPO F21s Pro 5G",
-        "price": 245.67,
-        "description": "OPPO F21s Pro 5G is a powerful device with a RAM extension feature, that offers brilliant operational speed to users.",
-        "ratings": 4.5,
+        "name": "Samsung Galaxy S23 Ultra 5G",
+        "price": 1199.99,
+        "description": "Samsung Galaxy S23 Ultra with 200MP camera, Snapdragon 8 Gen 2, 12GB RAM, 256GB storage. The ultimate flagship smartphone with S Pen and stunning 6.8-inch Dynamic AMOLED display.",
+        "ratings": 4.8,
         "images": [
             {
-                "image": "/images/products/1.jpg"
-            },
-            {
-                "image": "/images/products/2.jpg"
+                "image": "/images/products/samsung-s23.jpg"
             }
         ],
         "category": "Mobile Phones",
         "seller": "Amazon",
-        "stock": 5,
-        "numOfReviews": 15,
+        "stock": 15,
+        "numOfReviews": 245,
         "reviews": []
     },
     {
-        "name": "WRISTIO HD, Bluetooth Calling Smart Watch",
-        "price": 150.32,
-        "description": "Minix watches are exclusively designed to fulfill the advanced tech needs of today’s generation.",
-        "ratings": 3.5,
+        "name": "iPhone 15 Pro Max",
+        "price": 1299.99,
+        "description": "Apple iPhone 15 Pro Max with A17 Pro chip, titanium design, 48MP main camera, and Action button. Features ProMotion display with Always-On technology.",
+        "ratings": 4.9,
         "images": [
             {
-                "image": "/images/products/2.jpg"
+                "image": "/images/products/iphone-15-pro.jpg"
             }
         ],
-        "category": "Accessories",
-        "seller": "Flipkart",
-        "stock": 9,
-        "numOfReviews": 5,
+        "category": "Mobile Phones",
+        "seller": "Apple Store",
+        "stock": 12,
+        "numOfReviews": 389,
         "reviews": []
     },
     {
-        "name": "Dell Inspiron 3511 Laptop",
-        "price": 440.57,
-        "description": "Dell Inspiron 3511 11th Generation Intel Core i5-1135G7 Processor (8MB Cache, up to 4.2 GHz);Operating System: Windows 10 Home Single Language, English",
-        "ratings": 2,
+        "name": "Google Pixel 8 Pro",
+        "price": 999.99,
+        "description": "Google Pixel 8 Pro with Google Tensor G3 chip, AI-powered camera features, 6.7-inch LTPO OLED display, and 7 years of OS updates guaranteed.",
+        "ratings": 4.7,
         "images": [
             {
-                "image": "/images/products/3.jpg"
+                "image": "/images/products/pixel-8-pro.jpg"
+            }
+        ],
+        "category": "Mobile Phones",
+        "seller": "Google Store",
+        "stock": 20,
+        "numOfReviews": 156,
+        "reviews": []
+    },
+    {
+        "name": "OnePlus 12",
+        "price": 799.99,
+        "description": "OnePlus 12 featuring Snapdragon 8 Gen 3, 120Hz AMOLED display, 50MP Hasselblad camera, and 100W SuperVOOC fast charging.",
+        "ratings": 4.6,
+        "images": [
+            {
+                "image": "/images/products/oneplus-12.jpg"
+            }
+        ],
+        "category": "Mobile Phones",
+        "seller": "OnePlus",
+        "stock": 18,
+        "numOfReviews": 98,
+        "reviews": []
+    },
+    {
+        "name": "MacBook Pro 16-inch M3 Max",
+        "price": 2499.99,
+        "description": "Apple MacBook Pro 16-inch with M3 Max chip, 36GB unified memory, 1TB SSD, Liquid Retina XDR display. Perfect for professional creators and developers.",
+        "ratings": 4.9,
+        "images": [
+            {
+                "image": "/images/products/macbook-pro-16.jpg"
             }
         ],
         "category": "Laptops",
-        "seller": "Ebay",
-        "stock": 9,
-        "numOfReviews": 12,
+        "seller": "Apple Store",
+        "stock": 8,
+        "numOfReviews": 267,
         "reviews": []
     },
     {
-        "name": "Lenovo IdeaPad Slim 3 Laptop",
-        "price": 250.45,
-        "description": "Lenovo IdeaPad Slim 311th Gen Intel Core i5-1135G7 | Speed: 2.4 GHz (Base) - 4.2 GHz (Max) | 4 Cores | 8 Threads | 8 MB Cache",
-        "ratings": 4,
-        "images": [
-          {
-            "image": "/images/products/6.jpg"
-          }
-        ],
-        "category": "Laptops",
-        "seller": "Ebay",
-        "stock": 9,
-        "numOfReviews": 12,
-        "reviews": []
-      },
-      {
-        "name": "ASUS VivoBook 15 Laptop",
-        "price": 767.32,
-        "description": "ASUS VivoBook 15 15.6-inch (39.62 cm) HD, Dual Core Intel Celeron N4020, Thin and Light Laptop (4GB RAM/256GB SSD/Integrated Graphics/Windows 11 Home/Transparent Silver/1.8 Kg), X515MA-BR011W",
-        "ratings": 5,
-        "images": [
-          {
-            "image": "/images/products/7.jpg"
-          }
-        ],
-        "category": "Laptops",
-        "seller": "Ebay",
-        "stock": 9,
-        "numOfReviews": 12,
-        "reviews": []
-    },
-    {
-        "name": "PTron Newly Launched Tangent Sports, 60Hrs Playtime",
-        "price": 15.46,
-        "description": "Gigantic 60 + Hours of music playtime on a single charge; BT5.2 Wireless headphones with ENC (Environmental Noise Cancellation) Technology to enhance your voice quality over the voice calls",
-        "ratings": 5,
+        "name": "Dell XPS 15",
+        "price": 1899.99,
+        "description": "Dell XPS 15 with 13th Gen Intel Core i7, NVIDIA RTX 4060, 32GB RAM, 1TB SSD, 15.6-inch 4K OLED touchscreen display.",
+        "ratings": 4.7,
         "images": [
             {
-                "image": "/images/products/4.jpg"
+                "image": "/images/products/dell-xps-15.jpg"
+            }
+        ],
+        "category": "Laptops",
+        "seller": "Dell",
+        "stock": 10,
+        "numOfReviews": 189,
+        "reviews": []
+    },
+    {
+        "name": "ASUS ROG Zephyrus G16",
+        "price": 2299.99,
+        "description": "ASUS ROG Zephyrus G16 gaming laptop with Intel Core i9-13900H, RTX 4080, 32GB DDR5 RAM, 16-inch 240Hz QHD+ display. Ultimate gaming performance in a slim design.",
+        "ratings": 4.8,
+        "images": [
+            {
+                "image": "/images/products/asus-rog-g16.jpg"
+            }
+        ],
+        "category": "Laptops",
+        "seller": "ASUS",
+        "stock": 7,
+        "numOfReviews": 142,
+        "reviews": []
+    },
+    {
+        "name": "Lenovo ThinkPad X1 Carbon Gen 11",
+        "price": 1599.99,
+        "description": "Lenovo ThinkPad X1 Carbon with 13th Gen Intel Core i7, 16GB RAM, 512GB SSD, 14-inch 2.8K OLED display. The ultimate business ultrabook.",
+        "ratings": 4.6,
+        "images": [
+            {
+                "image": "/images/products/thinkpad-x1.jpg"
+            }
+        ],
+        "category": "Laptops",
+        "seller": "Lenovo",
+        "stock": 14,
+        "numOfReviews": 201,
+        "reviews": []
+    },
+    {
+        "name": "HP Spectre x360 14",
+        "price": 1449.99,
+        "description": "HP Spectre x360 2-in-1 laptop with Intel Core i7, 16GB RAM, 1TB SSD, 13.5-inch 3K2K OLED touchscreen, 360-degree hinge for versatile use.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "image": "/images/products/hp-spectre-x360.jpg"
+            }
+        ],
+        "category": "Laptops",
+        "seller": "HP",
+        "stock": 11,
+        "numOfReviews": 134,
+        "reviews": []
+    },
+    {
+        "name": "Sony WH-1000XM5",
+        "price": 399.99,
+        "description": "Sony WH-1000XM5 premium wireless noise cancelling headphones with industry-leading ANC, 30-hour battery life, and exceptional sound quality.",
+        "ratings": 4.8,
+        "images": [
+            {
+                "image": "/images/products/sony-wh1000xm5.jpg"
             }
         ],
         "category": "Headphones",
-        "seller": "Amazon",
-        "stock": 4,
-        "numOfReviews": 20,
+        "seller": "Sony",
+        "stock": 25,
+        "numOfReviews": 412,
         "reviews": []
     },
     {
-        "name": "Campus Men's Maxico Running Shoes",
-        "price": 10.12,
-        "description": "The high raised back cover with extra padding.",
-        "ratings": 3,
+        "name": "Apple AirPods Pro 2nd Gen",
+        "price": 249.99,
+        "description": "Apple AirPods Pro with active noise cancellation, adaptive transparency, personalized spatial audio, and MagSafe charging case with precision finding.",
+        "ratings": 4.7,
         "images": [
             {
-                "image": "/images/products/5.jpg"
+                "image": "/images/products/airpods-pro-2.jpg"
             }
         ],
-        "category": "Sports",
-        "seller": "Ebay",
+        "category": "Headphones",
+        "seller": "Apple Store",
+        "stock": 30,
+        "numOfReviews": 567,
+        "reviews": []
+    },
+    {
+        "name": "Bose QuietComfort Ultra",
+        "price": 429.99,
+        "description": "Bose QuietComfort Ultra headphones with world-class noise cancellation, immersive spatial audio, and luxurious comfort for all-day wear.",
+        "ratings": 4.7,
+        "images": [
+            {
+                "image": "/images/products/bose-qc-ultra.jpg"
+            }
+        ],
+        "category": "Headphones",
+        "seller": "Bose",
+        "stock": 18,
+        "numOfReviews": 289,
+        "reviews": []
+    },
+    {
+        "name": "Sennheiser Momentum 4 Wireless",
+        "price": 349.99,
+        "description": "Sennheiser Momentum 4 with exceptional sound quality, adaptive noise cancellation, and incredible 60-hour battery life. Audiophile-grade wireless headphones.",
+        "ratings": 4.6,
+        "images": [
+            {
+                "image": "/images/products/sennheiser-momentum-4.jpg"
+            }
+        ],
+        "category": "Headphones",
+        "seller": "Sennheiser",
+        "stock": 22,
+        "numOfReviews": 176,
+        "reviews": []
+    },
+    {
+        "name": "iPad Pro 12.9-inch M2",
+        "price": 1099.99,
+        "description": "Apple iPad Pro with M2 chip, 12.9-inch Liquid Retina XDR display, ProMotion technology, and Apple Pencil support. The ultimate creative tablet.",
+        "ratings": 4.8,
+        "images": [
+            {
+                "image": "/images/products/ipad-pro-12.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Apple Store",
+        "stock": 16,
+        "numOfReviews": 234,
+        "reviews": []
+    },
+    {
+        "name": "Samsung Galaxy Tab S9 Ultra",
+        "price": 1199.99,
+        "description": "Samsung Galaxy Tab S9 Ultra with 14.6-inch Dynamic AMOLED display, Snapdragon 8 Gen 2, S Pen included, IP68 water resistance.",
+        "ratings": 4.7,
+        "images": [
+            {
+                "image": "/images/products/galaxy-tab-s9.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Samsung",
+        "stock": 13,
+        "numOfReviews": 167,
+        "reviews": []
+    },
+    {
+        "name": "Apple Watch Series 9",
+        "price": 429.99,
+        "description": "Apple Watch Series 9 with S9 chip, double tap gesture, always-on Retina display, advanced health and fitness tracking, and carbon neutral options.",
+        "ratings": 4.8,
+        "images": [
+            {
+                "image": "/images/products/apple-watch-9.jpg"
+            }
+        ],
+        "category": "Accessories",
+        "seller": "Apple Store",
+        "stock": 28,
+        "numOfReviews": 445,
+        "reviews": []
+    },
+    {
+        "name": "Samsung Galaxy Watch 6 Classic",
+        "price": 399.99,
+        "description": "Samsung Galaxy Watch 6 Classic with rotating bezel, comprehensive health monitoring, long battery life, and premium stainless steel design.",
+        "ratings": 4.6,
+        "images": [
+            {
+                "image": "/images/products/galaxy-watch-6.jpg"
+            }
+        ],
+        "category": "Accessories",
+        "seller": "Samsung",
+        "stock": 24,
+        "numOfReviews": 298,
+        "reviews": []
+    },
+    {
+        "name": "Sony Alpha A7 IV",
+        "price": 2499.99,
+        "description": "Sony Alpha A7 IV mirrorless camera with 33MP full-frame sensor, 4K 60fps video, advanced autofocus, and professional image stabilization.",
+        "ratings": 4.9,
+        "images": [
+            {
+                "image": "/images/products/sony-a7-iv.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Sony",
+        "stock": 9,
+        "numOfReviews": 189,
+        "reviews": []
+    },
+    {
+        "name": "Canon EOS R6 Mark II",
+        "price": 2399.99,
+        "description": "Canon EOS R6 Mark II with 24.2MP full-frame sensor, 40fps continuous shooting, 6K RAW video, and dual card slots. Perfect for professionals.",
+        "ratings": 4.8,
+        "images": [
+            {
+                "image": "/images/products/canon-r6-ii.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Canon",
+        "stock": 7,
+        "numOfReviews": 156,
+        "reviews": []
+    },
+    {
+        "name": "LG 48-inch OLED C3 4K TV",
+        "price": 1299.99,
+        "description": "LG OLED C3 48-inch 4K Smart TV with self-lit OLED pixels, α9 AI Processor Gen6, Dolby Vision, perfect for gaming with 120Hz refresh rate.",
+        "ratings": 4.8,
+        "images": [
+            {
+                "image": "/images/products/lg-oled-c3.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "LG",
         "stock": 6,
-        "numOfReviews": 9,
+        "numOfReviews": 312,
+        "reviews": []
+    },
+    {
+        "name": "Nintendo Switch OLED",
+        "price": 349.99,
+        "description": "Nintendo Switch OLED model with vibrant 7-inch OLED screen, enhanced audio, 64GB internal storage, and adjustable stand for tabletop mode.",
+        "ratings": 4.7,
+        "images": [
+            {
+                "image": "/images/products/switch-oled.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Nintendo",
+        "stock": 35,
+        "numOfReviews": 523,
+        "reviews": []
+    },
+    {
+        "name": "PlayStation 5",
+        "price": 499.99,
+        "description": "Sony PlayStation 5 console with ultra-high speed SSD, ray tracing, 4K gaming up to 120fps, and revolutionary DualSense controller with haptic feedback.",
+        "ratings": 4.9,
+        "images": [
+            {
+                "image": "/images/products/ps5.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Sony",
+        "stock": 12,
+        "numOfReviews": 678,
+        "reviews": []
+    },
+    {
+        "name": "Xbox Series X",
+        "price": 499.99,
+        "description": "Microsoft Xbox Series X with 12 teraflops of power, 4K gaming at 120fps, Quick Resume feature, and access to Xbox Game Pass library.",
+        "ratings": 4.8,
+        "images": [
+            {
+                "image": "/images/products/xbox-series-x.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Microsoft",
+        "stock": 14,
+        "numOfReviews": 534,
+        "reviews": []
+    },
+    {
+        "name": "JBL Flip 6 Bluetooth Speaker",
+        "price": 129.99,
+        "description": "JBL Flip 6 portable Bluetooth speaker with powerful sound, IP67 waterproof rating, 12-hour battery life, and PartyBoost feature.",
+        "ratings": 4.6,
+        "images": [
+            {
+                "image": "/images/products/jbl-flip-6.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "JBL",
+        "stock": 40,
+        "numOfReviews": 412,
+        "reviews": []
+    },
+    {
+        "name": "Sonos Arc Soundbar",
+        "price": 899.99,
+        "description": "Sonos Arc premium smart soundbar with Dolby Atmos, voice control, 11 high-performance drivers, and seamless integration with your home.",
+        "ratings": 4.8,
+        "images": [
+            {
+                "image": "/images/products/sonos-arc.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Sonos",
+        "stock": 11,
+        "numOfReviews": 289,
+        "reviews": []
+    },
+    {
+        "name": "GoPro HERO 12 Black",
+        "price": 399.99,
+        "description": "GoPro HERO 12 Black action camera with 5.3K video, HyperSmooth 6.0 stabilization, waterproof design, and HDR photo and video capabilities.",
+        "ratings": 4.7,
+        "images": [
+            {
+                "image": "/images/products/gopro-12.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "GoPro",
+        "stock": 19,
+        "numOfReviews": 267,
+        "reviews": []
+    },
+    {
+        "name": "DJI Mini 4 Pro Drone",
+        "price": 759.99,
+        "description": "DJI Mini 4 Pro drone with 4K/60fps HDR video, omnidirectional obstacle sensing, 34-minute flight time, and advanced ActiveTrack features.",
+        "ratings": 4.8,
+        "images": [
+            {
+                "image": "/images/products/dji-mini-4.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "DJI",
+        "stock": 8,
+        "numOfReviews": 178,
+        "reviews": []
+    },
+    {
+        "name": "Logitech MX Master 3S",
+        "price": 99.99,
+        "description": "Logitech MX Master 3S wireless mouse with ultra-quiet clicks, 8K DPI sensor, ergonomic design, and multi-device connectivity.",
+        "ratings": 4.7,
+        "images": [
+            {
+                "image": "/images/products/mx-master-3s.jpg"
+            }
+        ],
+        "category": "Accessories",
+        "seller": "Logitech",
+        "stock": 45,
+        "numOfReviews": 534,
+        "reviews": []
+    },
+    {
+        "name": "Keychron K8 Pro Mechanical Keyboard",
+        "price": 109.99,
+        "description": "Keychron K8 Pro wireless mechanical keyboard with hot-swappable switches, RGB backlight, QMK/VIA support, and Mac/Windows compatibility.",
+        "ratings": 4.6,
+        "images": [
+            {
+                "image": "/images/products/keychron-k8.jpg"
+            }
+        ],
+        "category": "Accessories",
+        "seller": "Keychron",
+        "stock": 32,
+        "numOfReviews": 298,
         "reviews": []
     }
 ]
