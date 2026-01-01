@@ -168,14 +168,18 @@ exports.changePassword = catchAsyncError( async( req,res,next) => {
 
 })
 
-// Update Profile -
+// Update Profile - /api/v1/update
 exports.updateProfile = catchAsyncError(async(req,res,next) => {
     const newUserData = {
         name : req.body.name,
         email : req.body.email
     }
 
-    const user = await User.findByIdAndUpdate(req.user.id, newUserData, { // as this function returing promise we add await
+    if(req.file){
+        newUserData.avatar = `${process.env.BACKEND_URL}/uploads/user/${req.file.originalname}`
+    }
+
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
         new : true,
         runValidators : true
 
