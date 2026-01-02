@@ -24,7 +24,8 @@ const {
      getUser,
      updateUser,
      deleteUser,
-     changePassword
+     changePassword,
+     createUser
 } = require('../controllers/authController');
 const {isAuthenticatedUser, authorizeRoles } = require('../middlewares/authenticate')
 
@@ -41,6 +42,7 @@ router.route('/update').put(isAuthenticatedUser, upload.single('avatar'), update
 
 //Admin routes
 router.route('/admin/users').get(isAuthenticatedUser, authorizeRoles('admin'), getAllUsers);
+router.route('/admin/user/new').post(isAuthenticatedUser, authorizeRoles('admin'), upload.single('avatar'), createUser);
 router.route('/admin/user/:id').get(isAuthenticatedUser, authorizeRoles('admin'), getUser)  
                                .put(isAuthenticatedUser, authorizeRoles('admin'), updateUser)
                                .delete(isAuthenticatedUser, authorizeRoles('admin'), deleteUser)

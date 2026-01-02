@@ -5,13 +5,17 @@ import productReducer from "./slices/productSlice";
 import authReducer from './slices/authSlice';
 import cartReducer from './slices/cartSlice';
 import orderReducer from './slices/orderSlice';
+import userReducer from './slices/userSlice';
+import reviewReducer from './slices/reviewSlice';
 
 const reducer = combineSlices({
     productsState: productsReducer,
     productState: productReducer,
     authState: authReducer,
     cartState: cartReducer,
-    orderState: orderReducer
+    orderState: orderReducer,
+    userState: userReducer,
+    reviewState: reviewReducer
 });
 
 const store = configureStore({

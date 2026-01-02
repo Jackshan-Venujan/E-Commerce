@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import store from './store';
 import {Provider} from 'react-redux';
+import './utils/axiosConfig'; // Import axios configuration with interceptors
 //import { ToastContainer } from 'react-toastify';
 
 

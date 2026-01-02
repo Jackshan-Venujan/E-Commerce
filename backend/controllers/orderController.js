@@ -2,7 +2,6 @@ const catchAsyncError = require("../middlewares/catchAsyncError");
 const Order = require('../models/orderModel');
 const Product = require('../models/productModel');
 const ErrorHandler = require("../utils/errorHandler");
-const { updateOrder } = require('../controllers/orderController');
 
 // Create New Order - api/v1/order/new
 exports.newOrder = catchAsyncError(async(req,res,next) => {

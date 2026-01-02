@@ -14,7 +14,7 @@ export const getProducts = (keyword, page) => async (dispatch) =>{
 
     }
     catch (error){
-        dispatch(productsFail(error.response.data.message))
+        dispatch(productsFail(error.response?.data?.message || error.message))
 
     }
 }
@@ -29,6 +29,6 @@ export const getProduct =id => async (dispatch) =>{
 
     }
     catch (error){
-        dispatch(productFail(error.response.data.message))
+        dispatch(productFail(error.response?.data?.message || error.message))
     }
 }

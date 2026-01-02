@@ -3,6 +3,16 @@ const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncError = require('../middlewares/catchAsyncError');
 const APIFeatures = require('../utils/apiFeatures');
 
+// Get All Products (Admin) - /api/v1/admin/products
+exports.getAdminProducts = catchAsyncError(async(req, res, next) => {
+    const products = await Product.find();
+    res.status(200).json({
+        success: true,
+        count: products.length,
+        products
+    })
+})
+
 // Get Products - /api/v1/products
 exports.getProducts = catchAsyncError(async(req, res, next) => {
     const resPerPage = 4 ;
@@ -37,13 +47,24 @@ exports.getProducts = catchAsyncError(async(req, res, next) => {
 })
 
 
-// Create Products - /api/v1/product/new
+// Create Products - /api/v1/admin/product/new
 exports.newProduct = catchAsyncError(async(req,res,next)=>{
-    req.body.user = req.user.id;`q`
-    const Products = await Product.create(req.body);
+    let images = [];
+    
+    if(req.files && req.files.length > 0) {
+        req.files.forEach(file => {
+            let url = `${process.env.BACKEND_URL}/images/products/${file.filename}`;
+            images.push({ image: url });
+        });
+    }
+    
+    req.body.images = images;
+    req.body.user = req.user.id;
+    
+    const product = await Product.create(req.body);
     res.status(201).json({
         success: true,
-        Products
+        product
     })
 });
 
@@ -127,34 +148,38 @@ This ensures that your response is sent only once, avoiding the ERR_HTTP_HEADERS
     ------------------------------------------------------------------------------------------------------------------------------
 */
 
-// Update Product -/api/v1/product/:id
-exports.updateProduct = async (req, res, next) => {
-    try {
-        let product = await Product.findById(req.params.id);
+// Update Product - /api/v1/product/:id
+exports.updateProduct = catchAsyncError(async (req, res, next) => {
+    let product = await Product.findById(req.params.id);
 
-        if (!product) {
-            return res.status(404).json({
-                success: false,
-                message: "Product not found"
-            });
-        }
-
-        product = await Product.findByIdAndUpdate(req.params.id, req.body, { 
-            new: true,
-            runValidators: true
-        });
-
-        res.status(200).json({
-            success: true,
-            product
-        });
-    } catch (error) {
-        res.status(500).json({
+    if (!product) {
+        return res.status(404).json({
             success: false,
-            message: error.message
+            message: "Product not found"
         });
     }
-};
+    
+    let images = [];
+    
+    // If new images are uploaded
+    if(req.files && req.files.length > 0) {
+        req.files.forEach(file => {
+            let url = `${process.env.BACKEND_URL}/images/products/${file.filename}`;
+            images.push({ image: url });
+        });
+        req.body.images = images;
+    }
+
+    product = await Product.findByIdAndUpdate(req.params.id, req.body, { 
+        new: true,
+        runValidators: true
+    });
+
+    res.status(200).json({
+        success: true,
+        product
+    });
+});
 
 
 // Delete product
@@ -284,6 +309,30 @@ exports.deleteReview = catchAsyncError(async(req, res, next) => {
     res.status(200).json({
         success: true
     })
+});
+
+//Admin: Get All Reviews - api/v1/admin/reviews
+exports.getAdminReviews = catchAsyncError(async(req, res, next) => {
+    const products = await Product.find();
+    
+    let allReviews = [];
+    products.forEach(product => {
+        product.reviews.forEach(review => {
+            allReviews.push({
+                id: review._id,
+                rating: review.rating,
+                comment: review.comment,
+                user: review.user,
+                productId: product._id,
+                productName: product.name
+            });
+        });
+    });
+
+    res.status(200).json({
+        success: true,
+        reviews: allReviews
+    });
 });
 
 

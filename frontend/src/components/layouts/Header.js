@@ -12,7 +12,7 @@ export default function Header () {
     const navigate = useNavigate();
     const logoutHandler = () => {
         dispatch(logout);
-        
+        navigate('/login');
     }
 
     return(
@@ -38,8 +38,12 @@ export default function Header () {
                             <span>{user.name}</span>
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            <Dropdown.Item onClick={logoutHandler} className='text-danger'>Logout</Dropdown.Item>
+                            {user && user.role === 'admin' && (
+                                <Dropdown.Item onClick={()=>{navigate('/admin/dashboard')}} className='text-dark'>Dashboard</Dropdown.Item>
+                            )}
                             <Dropdown.Item onClick={()=>{navigate('./myprofile')}} className='text-dark'>Profile</Dropdown.Item>
+                            <Dropdown.Item onClick={()=>{navigate('/orders')}} className='text-dark'>Orders</Dropdown.Item>
+                            <Dropdown.Item onClick={logoutHandler} className='text-danger'>Logout</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 ) : 

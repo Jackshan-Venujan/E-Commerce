@@ -245,3 +245,36 @@ exports.deleteUser = catchAsyncError( async( req,res,next) => {
         message: "User deleted successfully"
     })
 });
+
+//Admin: Create New User - /api/v1/admin/user/new
+exports.createUser = catchAsyncError(async(req,res,next)=>{
+    const {name, email, password, role} = req.body;
+    let avatar;
+
+    if(req.file){
+        avatar = `${process.env.BACKEND_URL}/uploads/user/${req.file.originalname}`
+    }
+
+    // Validate input fields
+    if (!name || !email || !password) {
+        return res.status(400).json({
+            success: false,
+            message: "All fields (name, email, password) are required"
+        });
+    }
+
+    //Create user
+    const user = await User.create({
+        name,
+        email,
+        password,
+        avatar,
+        role: role || 'user' // Default to 'user' if role not provided
+    });
+
+    res.status(201).json({
+        success: true,
+        message: "User created successfully",
+        user
+    });
+});

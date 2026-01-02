@@ -2,6 +2,7 @@ const express = require('express');         //creating express app
 const app = express();                      //creating object
 const cookieParser = require('cookie-parser')
 const path = require('path');
+const cors = require('cors');
 
 
 // Importing middleware and routes
@@ -10,6 +11,12 @@ const products = require('./routes/product');
 const auth = require('./routes/auth');
 const order = require('./routes/order');
 const ErrorHandler = require('./utils/errorHandler');
+
+// CORS configuration to allow credentials
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}));
 
 app.use(express.json());
 app.use(cookieParser());

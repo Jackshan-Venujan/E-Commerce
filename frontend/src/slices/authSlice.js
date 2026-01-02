@@ -50,8 +50,8 @@ const authSlice = createSlice({
         clearError(state, action) {
             return {
                 ...state,
-                isAuthenticated: false,
-                loading: false,             
+                loading: false,
+                error: null
             }
         },
         loadUserRequest(state, action){
