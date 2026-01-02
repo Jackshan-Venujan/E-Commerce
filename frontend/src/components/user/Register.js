@@ -49,17 +49,15 @@ export default function Register() {
     useEffect(() => {
         if (isAuthenticated){
             navigate('/');
-            return
         }
         if (error) {
             toast.error(error, {
-            position:"bottom-center" ,
-            type:'error',
-            onOpen: () => {dispatch(clearAuthError)}
-        });
-    return
-    }
-}, [error,isAuthenticated, dispatch]);
+                position:"bottom-center" ,
+                type:'error',
+                onOpen: () => {dispatch(clearAuthError)}
+            });
+        }
+    }, [error,isAuthenticated, dispatch, navigate]);
 
 
     return (

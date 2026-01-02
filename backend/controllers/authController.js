@@ -39,19 +39,27 @@ exports.registerUser = catchAsyncError(async(req,res,next)=>{
 // Login User - /api/v1/login
 exports.loginUser = catchAsyncError(async (req,res,next) => {
     const {email, password} = req.body
+    
+    console.log('Login attempt:', { email, password: '***' });
+    
     if(!email || !password){
         return next(new ErrorHandler('Please enter email & password', 400))
     }
 
     //finding the user from database
     const user = await User.findOne({email}).select('+password');
+    
+    console.log('User found:', user ? 'Yes' : 'No');
 
     if(!user){
         return next(new ErrorHandler('Invalid email or password', 401))
     }
 
-
-    if(!await user.isValidPassword(password)){
+    const isPasswordMatched = await user.isValidPassword(password);
+    
+    console.log('Password matched:', isPasswordMatched);
+    
+    if(!isPasswordMatched){
         return next(new ErrorHandler('Invalid email or password', 401))
     }
 

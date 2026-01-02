@@ -1,18 +1,20 @@
 import { Fragment, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { updateProfile, loadUser } from '../../actions/userActions';
 import { clearUpdate } from '../../slices/authSlice';
 import { toast } from 'react-toastify';
 import MetaData from '../layouts/MetaData';
 
 export default function UpdateProfile() {
-    const { user, error, isUpdated } = useSelector(state => state.authState);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    const { user, error, isUpdated, loading } = useSelector(state => state.authState);
+    const [name, setName] = useState(user?.name || '');
+    const [email, setEmail] = useState(user?.email || '');
     const [avatar, setAvatar] = useState('');
-    const [avatarPreview, setAvatarPreview] = useState('/images/default_avatar.png');
+    const [avatarPreview, setAvatarPreview] = useState(user?.avatar || '/images/default_avatar.png');
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onChangeAvatar = (e) => {
         const reader = new FileReader();
@@ -37,28 +39,28 @@ export default function UpdateProfile() {
     };
 
     useEffect(() => {
-        if (user) {
-            setName(user.name);
-            setEmail(user.email);
+        if (user && user.name) {
+            setName(user.name || '');
+            setEmail(user.email || '');
             if (user.avatar) {
                 setAvatarPreview(user.avatar);
             }
         }
+    }, [user]);
 
+    useEffect(() => {
         if (isUpdated) {
             toast.success('Profile updated successfully!');
             dispatch(loadUser);
             dispatch(clearUpdate());
-            setTimeout(() => {
-                window.location.href = '/myprofile';
-            }, 1000);
+            navigate('/myprofile');
         }
 
         if (error) {
             toast.error(error);
             dispatch(clearUpdate());
         }
-    }, [user, isUpdated, error, dispatch]);
+    }, [isUpdated, error, dispatch, navigate]);
 
     return (
         <Fragment>
@@ -120,7 +122,9 @@ export default function UpdateProfile() {
                             </div>
                         </div>
 
-                        <button type="submit" className="btn update-btn btn-block mt-4 mb-3">Update</button>
+                        <button type="submit" className="btn update-btn btn-block mt-4 mb-3" disabled={loading}>
+                            {loading ? 'Updating...' : 'Update'}
+                        </button>
                     </form>
                 </div>
             </div>

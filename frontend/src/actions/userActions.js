@@ -40,7 +40,7 @@ import {
 export const login = (email,password) => async(dispatch) =>{
     try{
         dispatch(loginRequest());
-        const {data} = await axios.post(`api/v1/login`,{email,password});  //get
+        const {data} = await axios.post(`/api/v1/login`,{email,password});
         dispatch(loginSuccess(data))
 
     } catch (error){
@@ -61,7 +61,7 @@ export const register = (userData) => async(dispatch) =>{
                 "Content-Type":"multipart/form-data"
             }
         };
-        const {data} = await axios.post(`api/v1/register`, userData, config);
+        const {data} = await axios.post(`/api/v1/register`, userData, config);
         dispatch(registerSuccess(data))
 
     } catch (error){
@@ -74,7 +74,7 @@ export const loadUser = async(dispatch) =>{
     try{
         dispatch(loadUserRequest());
 
-        const {data} = await axios.get(`api/v1/myprofile`);
+        const {data} = await axios.get(`/api/v1/myprofile`);
         dispatch(loadUserSuccess(data))
 
     } catch (error){
@@ -85,7 +85,7 @@ export const loadUser = async(dispatch) =>{
 
 export const logout = async(dispatch) =>{
     try{
-        await axios.get(`api/v1/logout`);
+        await axios.get(`/api/v1/logout`);
         dispatch(logoutSuccess())
 
     } catch (error){
@@ -102,7 +102,7 @@ export const updateProfile = (userData) => async(dispatch) =>{
                 "Content-Type":"multipart/form-data"
             }
         };
-        const {data} = await axios.put(`api/v1/update`, userData, config);
+        const {data} = await axios.put(`/api/v1/update`, userData, config);
         dispatch(updateProfileSuccess(data))
 
     } catch (error){
@@ -119,7 +119,7 @@ export const updatePassword = (formData) => async(dispatch) =>{
                 "Content-Type":"application/json"
             }
         };
-        await axios.put(`api/v1/password/change`, formData, config);
+        await axios.put(`/api/v1/password/change`, formData, config);
         dispatch(updatePasswordSuccess())
 
     } catch (error){

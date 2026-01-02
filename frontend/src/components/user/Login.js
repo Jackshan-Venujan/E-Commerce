@@ -22,9 +22,7 @@ export default function Login() {
 
     useEffect(() => {
         if(isAuthenticated){
-            
             navigate('/');
-
         }
 
         if (error) {
@@ -32,8 +30,7 @@ export default function Login() {
                 position:"bottom-center" ,
                 type:'error',
                 onOpen: () => {dispatch(clearAuthError)}
-        });
-        return
+            });
         }
     }, [error, isAuthenticated,dispatch,navigate]);
 
