@@ -6,7 +6,7 @@ import {DropdownButton, Dropdown, Image} from 'react-bootstrap';
 import { logout } from '../../actions/userActions';
 
 export default function Header () {
-    const {isAuthenticated,user} = useSelector(state => state.authState);
+    const {isAuthenticated, user, loading} = useSelector(state => state.authState);
     const {items = []} = useSelector(state => state.cartState || {items: []});
     const dispatch = useDispatch(); 
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ export default function Header () {
             </div>
   
             <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-                {isAuthenticated ? 
+                {loading ? null : isAuthenticated ? 
                 (
                     <Dropdown className='d-inline'>
                         <Dropdown.Toggle variant= 'default text-white pr-5' id='dropdown-basic'>

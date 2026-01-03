@@ -1,13 +1,15 @@
-import { Fragment, useEffect } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { userOrders } from '../../actions/orderActions';
 import Loader from '../layouts/Loader';
 import MetaData from '../layouts/MetaData';
+import OrderDetail from './OrderDetail';
 
 export default function UserOrders() {
     const { userOrders: orders, loading } = useSelector(state => state.orderState);
     const dispatch = useDispatch();
+    const [selectedOrderId, setSelectedOrderId] = useState(null);
 
     useEffect(() => {
         dispatch(userOrders);
@@ -41,9 +43,14 @@ export default function UserOrders() {
                                                 {order.orderStatus}
                                             </td>
                                             <td>
-                                                <Link to={`/order/${order._id}`} className="btn btn-primary">
+                                                <button 
+                                                    onClick={() => setSelectedOrderId(order._id)} 
+                                                    className="btn"
+                                                    style={{ backgroundColor: '#febd69', color: '#232f3e' }}
+                                                    title="View Order Details"
+                                                >
                                                     <i className="fa fa-eye"></i>
-                                                </Link>
+                                                </button>
                                             </td>
                                         </tr>
                                     ))}
@@ -61,6 +68,14 @@ export default function UserOrders() {
                     )}
                 </Fragment>
             }
+            
+            {/* Order Detail Modal */}
+            {selectedOrderId && (
+                <OrderDetail 
+                    orderId={selectedOrderId} 
+                    onClose={() => setSelectedOrderId(null)}
+                />
+            )}
         </Fragment>
     );
 }

@@ -14,6 +14,12 @@ export default function Search (){
             navigate('/');
         }
     }
+
+    const clearSearch = () => {
+        setKeyword("");
+        navigate('/');
+    }
+
     return(
         <form onSubmit={searchHandler}>
             <div className="input-group">
@@ -27,9 +33,21 @@ export default function Search (){
                 value={keyword}
                 />
                 <div className="input-group-append">
-                    <button id="search_btn" className="btn">
+                    <button id="search_btn" className="btn" type="submit">
                         <i className="fa fa-search" aria-hidden="true"></i>
                     </button>
+                    {keyword && (
+                        <button 
+                            id="clear_btn" 
+                            className="btn" 
+                            type="button"
+                            onClick={clearSearch}
+                            style={{ backgroundColor: '#dc3545', color: 'white', marginLeft: '2px' }}
+                            title="Clear search"
+                        >
+                            <i className="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                    )}
                 </div> 
         </div>
     </form>

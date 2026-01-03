@@ -38,11 +38,11 @@ function AppContent() {
   const isAdminRoute = location.pathname.startsWith('/admin');
 
   return (
-    <>
+    <div className="app-wrapper">
       {!isAdminRoute && <Header/>}
       <ToastContainer theme="dark" position="top-right" autoClose={3000} />
       {!isAdminRoute ? (
-        <div className="container container-fluid">
+        <div className="container container-fluid main-content">
           <Routes>
             <Route path = '/' element = {<Home/>} />
             <Route path = '/search/:keyword' element = {<ProductSearch/>} />
@@ -76,7 +76,7 @@ function AppContent() {
         </Routes>
       )}
       {!isAdminRoute && <Footer/>}
-    </>
+    </div>
   );
 }
 

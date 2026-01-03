@@ -8,6 +8,16 @@ body {
   overflow-x: hidden;
 }
 
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1 0 auto;
+}
+
 /* Scroll Bar */
 
 ::-webkit-scrollbar-track {
@@ -115,9 +125,8 @@ nav {
 
 /* Footer */
 footer {
-  margin-top: 8rem;
+  margin-top: auto;
   color: grey;
-  bottom: 0;
   width: 100%;
 }
 
@@ -709,4 +718,90 @@ ul.CTAs a {
 
 .Toastify__toast--error {
   background-color: #f44336; /* Red background for error */
+}
+/* Order Detail Modal Styles */
+.modal-backdrop.show {
+  opacity: 0.5;
+}
+
+.modal.show.d-block {
+  overflow-y: auto;
+}
+
+.modal-xl {
+  max-width: 95%;
+}
+
+@media (min-width: 1200px) {
+  .modal-xl {
+    max-width: 1140px;
+  }
+}
+
+.greenColor {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.redColor {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.card {
+  border: 1px solid #dee2e6;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+.btn-close-white {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Brand Color Variables */
+:root {
+  --brand-primary: #febd69;
+  --brand-secondary: #232f3e;
+}
+
+/* Updated Order Modal Styles with Brand Colors */
+.order-modal-header {
+  background-color: #232f3e;
+  color: white;
+}
+
+.order-card-header {
+  background-color: #232f3e;
+  color: white;
+}
+
+.brand-btn-primary {
+  background-color: #febd69;
+  color: #232f3e;
+  font-weight: bold;
+  border: none;
+}
+
+.brand-btn-primary:hover {
+  background-color: #e5a855;
+  color: #232f3e;
+}
+
+.brand-btn-secondary {
+  background-color: #232f3e;
+  color: white;
+  border: none;
+}
+
+.brand-btn-secondary:hover {
+  background-color: #1a2332;
+  color: white;
 }
